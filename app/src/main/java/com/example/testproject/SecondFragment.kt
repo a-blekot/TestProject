@@ -36,7 +36,7 @@ class SecondFragment : Fragment() {
         // Inflate the layout for this fragment
 
         fakeListN = mutableListOf()
-        for (i in 1..1_000_0) {
+        for (i in 1..10_000) {
             fakeListN.add(generateEmoji())
         }
 
@@ -50,7 +50,7 @@ class SecondFragment : Fragment() {
             CoroutineScope(Dispatchers.Main).launch {
 
                 val jobs = mutableListOf<Deferred<Boolean>>()
-                val N = 200
+                val N = 500
                 for (i in 1..N) {
                     jobs.add(backgroundScope.async {
                         Log.d("LIST_OK", "${Thread.currentThread().name} async $i start")
@@ -69,7 +69,7 @@ class SecondFragment : Fragment() {
             CoroutineScope(Dispatchers.Main).launch {
 
                 val jobs = mutableListOf<Deferred<Boolean>>()
-                val N = 200
+                val N = 500
                 for (i in 1..N) {
                     jobs.add(backgroundScope.async {
                         Log.d("LIST_FAIL", "${Thread.currentThread().name} async $i start")
